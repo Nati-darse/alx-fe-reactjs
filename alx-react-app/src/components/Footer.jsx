@@ -1,4 +1,4 @@
-function WelcomeMessage() {
+function Footer() {
     return (
         <footer>
             <p>© 2023 City Lovers</p>
@@ -6,4 +6,4 @@ function WelcomeMessage() {
     );
 }
 
-export default WelcomeMessage;
+export default Footer;
