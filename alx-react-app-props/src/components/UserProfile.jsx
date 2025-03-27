@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from 'react';
+import UserContext from './UserContext';
 
-const UserProfile = (props) => {
+const UserProfile = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <div
       style={{
@@ -10,11 +13,11 @@ const UserProfile = (props) => {
         borderRadius: "5px",
       }}
     >
-      <h2 style={{ color: "blue" }}>{props.name}</h2>
+      <h2 style={{ color: "blue" }}>{user.name}</h2>
       <p>
-        Age: <span style={{ fontWeight: "bold" }}>{props.age}</span>{" "}
+        Age: <span style={{ fontWeight: "bold" }}>{user.age}</span>{" "}
       </p>
-      <p>Bio: {props.bio}</p>
+      <p>Bio: {user.bio}</p>
     </div>
   );
 };
