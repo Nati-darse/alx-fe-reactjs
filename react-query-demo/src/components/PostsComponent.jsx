@@ -16,7 +16,7 @@ const PostsComponent = () => {
     return <div>Loading...</div>;
   }
 
-  if (error) {  // Using error object directly instead of isError
+  if (error) {
     return <div>Error: {error.message}</div>;
   }
 
@@ -26,7 +26,7 @@ const PostsComponent = () => {
       {isFetching && <span>Updating...</span>}
       <button onClick={refetch}>Refetch Posts</button>
       <ul>
-        {data?.map(post => (  // Added optional chaining for safety
+        {data?.map(post => (
           <li key={post.id}>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
