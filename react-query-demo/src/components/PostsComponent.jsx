@@ -10,19 +10,23 @@ const fetchPosts = async () => {
 };
 
 const PostsComponent = () => {
-  // Simple useQuery without any restricted options
-  const { data, isLoading, error, isFetching, refetch } = useQuery('posts', fetchPosts);
+  const { data, error, isLoading, isFetching, refetch } = useQuery('posts', fetchPosts);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {  // Using error object directly instead of isError
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div>
       <h2>Posts</h2>
-      {isFetching && <div>Updating posts...</div>}
-      <button onClick={refetch}>Refresh Posts</button>
+      {isFetching && <span>Updating...</span>}
+      <button onClick={refetch}>Refetch Posts</button>
       <ul>
-        {data?.map(post => (
+        {data?.map(post => (  // Added optional chaining for safety
           <li key={post.id}>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
