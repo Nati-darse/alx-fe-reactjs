@@ -28,6 +28,9 @@ const RegistrationForm = () => {
     // Here you can call your mock API to register the user
   };
 
+  // Destructure formData here
+  const { username, email, password } = formData;
+
   return (
     <form onSubmit={handleSubmit}>
       <h2>Register</h2>
@@ -36,21 +39,21 @@ const RegistrationForm = () => {
         type="text"
         name="username"
         placeholder="Username"
-        value={formData.username} // Correctly set value for username
+        value={username} // Now using destructured variable
         onChange={handleChange}
       />
       <input
         type="email"
         name="email"
         placeholder="Email"
-        value={formData.email} // Correctly set value for email
+        value={email} // Now using destructured variable
         onChange={handleChange}
       />
       <input
         type="password"
         name="password"
         placeholder="Password"
-        value={formData.password} // Correctly set value for password
+        value={password} // Now using destructured variable
         onChange={handleChange}
       />
       <button type="submit">Register</button>
